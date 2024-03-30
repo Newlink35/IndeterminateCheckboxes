@@ -2,33 +2,13 @@ import React, { useState } from 'react'
 
 
 
-const Intermiddent = ({ explorerData,isCheked }) => {
+const Intermiddent = ({ explorerData,HandlerCheckBox,isCheked}) => {
     const [open, setOpen] = useState(false);
-    var foldercheck = {
-        "Root Folder": false, 
-        "src": false,
-        "component": false,
-        "intermiddent.jsx": false,
-        "data": false,
-        "FolderData.js": false
-    }
-    
-    var [isCheked, setisCheked] = useState(isCheked ? isCheked : foldercheck);
-    //  console.log(explorerData)
 
 
-    const HandlerCheckBox = (e) => {
-        let nm=e.target.name
- 
-        if(e.target.checked){
-            setisCheked({...isCheked, [nm]:true})
-        }
-        else{
-            setisCheked({...isCheked, [nm]:false})
-        }
-    }
-   
-    console.log('isCheked',isCheked);
+
+   console.log("isCheked",isCheked);
+
 
 
     return (
@@ -41,7 +21,7 @@ const Intermiddent = ({ explorerData,isCheked }) => {
             {open && <div style={{ paddingLeft: 40 }}>
                 {
                     explorerData.item.map((exp) => {
-                        return <Intermiddent key={exp.id} explorerData={exp} isCheked={isCheked} />
+                        return <Intermiddent key={exp.id} explorerData={exp} HandlerCheckBox={HandlerCheckBox} isCheked={isCheked} />
                     })
                 }
             </div>}
