@@ -1,9 +1,12 @@
 import React from 'react'
+import Intermiddent from './component/Intermiddent'
+import explorer from './data/FolderData'
+
 
 const App = () => {
   return (
     <div>
-        Hello Ali
+        <Intermiddent explorerData = {explorer}/>
     </div>
   )
 }
